@@ -1,36 +1,39 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+![image](https://github.com/othegagan/thirdeye/assets/77300329/ccf65cf9-347e-4d60-933d-6e12ea1cf643)
 
-## Getting Started
+# Welcome to Third Eye Landing Page 🚀
 
-First, run the development server:
+## Introduction 📚
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Third Eye is your gateway to a world of educational innovation. Our landing page serves
+as the front door to an educational journey like no other. 🌟
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Features 🌈
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+📌 **Choose Your Path**: Whether you're from a school, college, or university, find the
+   perfect educational solution for your institution.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+🔍 **Discover with a Demo**: Dive deep into Third Eye's powerful features and
+   functionalities with a personalized demo. Explore the future of education!
 
-## Learn More
+💼 **Dedicated Support**: Our support team is just a message away. We're here to
+   assist you every step of the way, making your educational experience seamless.
 
-To learn more about Next.js, take a look at the following resources:
+## Getting Started 🚀
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Clone this repository to your local machine.
+2. Run `pnpm install` to install the required dependencies.
+3. Customize the landing page to fit your institution's branding and needs.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
+## Contributing 🤝
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+We welcome contributions from the community! If you have ideas for improvements or
+would like to report issues, please create a GitHub issue or submit a pull request.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## License 📜
+
+This project is licensed under the [MIT License](LICENSE).
+
+
+Feel free to explore, contribute, and make education better with Third Eye! 📚✨
+### Made with ❤️‍🔥 by Gagan Kumar (thegagan-portfolio.vercel.app)
