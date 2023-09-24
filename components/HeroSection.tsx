@@ -26,7 +26,7 @@ const HeroSection = () => {
                         </div>
 
                         <div>
-                            <img className="w-full" src="https://cdn.rareblocks.xyz/collection/celebration/images/hero/1/hero-img.png" alt="" />
+                            <img className="w-full" src="/hero.png" alt="" />
                         </div>
                     </div>
                 </div>
