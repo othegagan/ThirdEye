@@ -56,7 +56,7 @@ const NavBar = () => {
 
 
 
-                    <a href="#" title="" className="items-center justify-center hidden px-4 py-3 ml-10 text-base font-semibold text-white transition-all duration-200 bg-primary border border-transparent rounded-full lg:inline-flex hover:bg-green-700 focus:bg-green-700" role="button"> Contact </a>
+                    <a href="https://school360-test.web.app/" title="" className="items-center justify-center hidden px-4 py-3 ml-10 text-base font-semibold text-white transition-all duration-200 bg-primary border border-transparent rounded-full lg:inline-flex hover:bg-green-700 focus:bg-green-700" role="button"> Sign In </a>
                 </nav>
 
                 {open && (<nav className="pt-4 pb-6 bg-white border border-gray-200 rounded-md shadow-md ">
@@ -69,7 +69,7 @@ const NavBar = () => {
                     </div>
 
                     <div className="px-6 mt-6">
-                        <a href="https://school360-test.web.app/" title="" className="items-center justify-center hidden px-4 py-3 ml-10 text-base font-semibold text-white transition-all duration-200 bg-primary border border-transparent rounded-full lg:inline-flex hover:bg-green-700 focus:bg-green-700" role="button"> Sign In </a>
+                        <a href="https://school360-test.web.app/" title="" className="items-center justify-center  px-4 py-3 ml-10 text-base font-semibold text-white transition-all duration-200 bg-primary border border-transparent rounded-full lg:inline-flex hover:bg-green-700 focus:bg-green-700" role="button"> Sign In </a>
                     </div>
                 </nav>)}
 
