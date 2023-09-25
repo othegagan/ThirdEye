@@ -9,7 +9,7 @@ const HeroSection = () => {
         <div className="bg-white">
             <section className="bg-[#FCF8F1] bg-opacity-30 py-10 sm:py-16 lg:py-24">
                 <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
-                    <div className="grid items-center grid-cols-1 gap-12 lg:grid-cols-2">
+                    <div className="grid items-center grid-cols-1 gap-12 md:grid-cols-2">
                         <div>
                             <p className="text-xl font-bold md:text-3xl text-black ">Welcome to <span className='text-primary'>ThirdEye..!</span></p>
 
