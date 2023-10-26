@@ -3,15 +3,13 @@ import React from 'react'
 const Footer = () => {
     return (
         <div>
-
-
-            <div className="px-10 inline-block -mb-40 w-full">
-                <div className="px-4   md:rounded-[0.625rem] mx-auto  py-10 sm:py-16 lg:py-12 bg-gray-500 sm:px-6 lg:px-20 max-w-7xl bg-[url('/contact.png')] bg-cover flex flex-col ">
+            <div className="px-6 overflow-hidden inline-block -mb-40 w-full" id='contact'>
+                <div className="px-4   rounded-[14px] mx-auto  py-10 sm:py-16 lg:py-12 bg-gray-500 sm:px-6 lg:px-20 max-w-7xl bg-[url('/contact.png')] bg-cover flex flex-col ">
                     <div className=" mx-auto text-center ">
                         <p className='text-primary font-extrabold uppercase text-[1.25rem] leading-3 mb-[1.5rem]'>Contact Us</p>
 
                         <h2 className="text-3xl font-bold leading-tight text-white sm:text-4xl">
-                            Feel free to reach out to us anytime! .</h2>
+                            Feel free to reach out to us at anytime..!</h2>
 
                         <form className="mt-14 max-w-3xl ">
                             <div className="grid grid-cols-1 w-5xl gap-x-5 gap-y-4">
@@ -75,7 +73,7 @@ const Footer = () => {
 
                                     <div className="w-full hidden xl:block  h-px mt-8 mb-5 xl:w-px xl:m-0 xl:h-6 bg-zinc-50/20"></div>
 
-                                    <ul className="flex items-center justify-center space-x-8 xl:justify-end">
+                                    <ul className="flex items-center mt-6 xl:mt-0 justify-center space-x-8 xl:justify-end">
                                         <li>
                                             <a href="#" title="" className="block text-white transition-all duration-200 hover:text-opacity-80 focus:text-opacity-80">
                                                 <svg className="w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
