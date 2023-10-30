@@ -1,11 +1,12 @@
 "use client";
 
-import { Fragment, useRef, useState } from "react";
+import { Fragment, useEffect, useRef, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
+import toast from "react-hot-toast";
 
 const Pricing = () => {
     const [open, setOpen] = useState(false);
-    const [message, setMessage] = useState("");
+    const [process, setProcess] = useState(false);
 
     const [formTitle, setFormTitle] = useState("");
 
@@ -28,19 +29,75 @@ const Pricing = () => {
         },
     ];
 
-    const handleSubmit = async (e: any) => {
+    const sendEmail = async (e: any) => {
         e.preventDefault();
-
+        setProcess(true);
         // Create a FormData object
         const formData = new FormData(e.target);
 
         const object = Object.fromEntries(formData);
-        const json = JSON.stringify(object);
+        const data = JSON.stringify(object);
 
-        console.log(json);
-        e.target.reset();
+        const response = await fetch("api/send", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: data,
+        });
 
-        setMessage("Thank You for contacting..!");
+        if (response.status === 200) {
+            toast(
+                () => (
+                    <span className="p-4 text-lg px-6 font-semibold flex gap-3">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="30"
+                            height="30"
+                            viewBox="0 0 24 24"
+                            className="text-green-500"
+                            fill="none">
+                            <path
+                                fill-rule="evenodd"
+                                clip-rule="evenodd"
+                                d="M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12ZM16.0303 8.96967C16.3232 9.26256 16.3232 9.73744 16.0303 10.0303L11.0303 15.0303C10.7374 15.3232 10.2626 15.3232 9.96967 15.0303L7.96967 13.0303C7.67678 12.7374 7.67678 12.2626 7.96967 11.9697C8.26256 11.6768 8.73744 11.6768 9.03033 11.9697L10.5 13.4393L12.7348 11.2045L14.9697 8.96967C15.2626 8.67678 15.7374 8.67678 16.0303 8.96967Z"
+                                fill="currentColor"
+                            />
+                        </svg>
+                        Email sent successfully..!
+                    </span>
+                ),
+                {
+                    duration: 5000,
+                    position: "bottom-center",
+                }
+            );
+            setOpen(false);
+            setProcess(false);
+        } else {
+            toast(
+                () => (
+                    <span className="p-4 text-lg px-6 font-semibold flex gap-3 items-center">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="currentColor"
+                            width="30px"
+                            height="30px"
+                            viewBox="0 0 24 24"
+                            className="text-red-500 scale-150">
+                            <path d="M16.417 10.283A7.917 7.917 0 1 1 8.5 2.366a7.916 7.916 0 0 1 7.917 7.917zm-6.804.01 3.032-3.033a.792.792 0 0 0-1.12-1.12L8.494 9.173 5.46 6.14a.792.792 0 0 0-1.12 1.12l3.034 3.033-3.033 3.033a.792.792 0 0 0 1.12 1.119l3.032-3.033 3.033 3.033a.792.792 0 0 0 1.12-1.12z" />
+                        </svg>
+                        Something went wrong, Please Try again..!
+                    </span>
+                ),
+                {
+                    duration: 5000,
+                    position: "bottom-center",
+                }
+            );
+            setOpen(false);
+            setProcess(false);
+        }
     };
 
     return (
@@ -190,189 +247,160 @@ const Pricing = () => {
                                 leaveFrom="opacity-100 translate-y-0 sm:scale-100"
                                 leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95">
                                 <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 justify-start  w-full sm:max-w-3xl">
-                                    {message == "" && (
-                                        <form onSubmit={handleSubmit}>
-                                            <div className="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4 ">
-                                                <div className="sm:flex sm:items-start">
-                                                    <div className="mt-3  sm:ml-4 sm:mt-0 sm:text-left w-full">
-                                                        <Dialog.Title
-                                                            as="h1"
-                                                            className="text-lg sm:text-2xl sm mb-6 font-semibold leading-6 text-gray-900">
-                                                            {formTitle}
-                                                        </Dialog.Title>
+                                    <form onSubmit={sendEmail}>
+                                        <div className="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4 ">
+                                            <div className="sm:flex sm:items-start">
+                                                <div className="mt-3  sm:ml-4 sm:mt-0 sm:text-left w-full">
+                                                    <Dialog.Title
+                                                        as="h1"
+                                                        className="text-lg sm:text-2xl sm mb-6 font-semibold leading-6 text-gray-900">
+                                                        {formTitle}
+                                                    </Dialog.Title>
 
-                                                        <div className="my-2 w-full">
-                                                            <div className="grid gap-4 lg:gap-6">
-                                                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-6">
-                                                                    <div className="grid gap-2">
-                                                                        <label
-                                                                            className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                                                                            htmlFor="name">
-                                                                            Name{" "}
-                                                                            <span className="text-red-500">
-                                                                                *
-                                                                            </span>
-                                                                        </label>
-                                                                        <input
-                                                                            className="flex h-10 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-zinc-400  ring-0 ring-slate-900/10 hover:ring-slate-300 focus:outline-none focus:ring-2 focus:ring-primary "
-                                                                            id="name"
-                                                                            name="name"
-                                                                            placeholder="Enter your full name"
-                                                                            required
-                                                                        />
-                                                                    </div>
-
-                                                                    <div className="grid gap-2">
-                                                                        <label
-                                                                            className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                                                                            htmlFor="name">
-                                                                            Phone
-                                                                            Number{" "}
-                                                                            <span className="text-red-500">
-                                                                                *
-                                                                            </span>
-                                                                        </label>
-                                                                        <input
-                                                                            className="flex h-10 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-zinc-400  ring-0 ring-slate-900/10 hover:ring-slate-300 focus:outline-none focus:ring-2 focus:ring-primary "
-                                                                            id="phoneNumber"
-                                                                            name="phoneNumber"
-                                                                            placeholder="Enter  phone number"
-                                                                        />
-                                                                    </div>
-                                                                </div>
-
-                                                                <div>
+                                                    <div className="my-2 w-full">
+                                                        <div className="grid gap-4 lg:gap-6">
+                                                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-6">
+                                                                <div className="grid gap-2">
                                                                     <label
-                                                                        htmlFor="hs-work-email-hire-us-2"
-                                                                        className="block text-sm text-gray-700 font-medium ">
-                                                                        Work
-                                                                        Email{" "}
+                                                                        className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                                                                        htmlFor="name">
+                                                                        Name{" "}
                                                                         <span className="text-red-500">
                                                                             *
                                                                         </span>
                                                                     </label>
                                                                     <input
-                                                                        type="email"
-                                                                        id="email"
-                                                                        name="email"
                                                                         className="flex h-10 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-zinc-400  ring-0 ring-slate-900/10 hover:ring-slate-300 focus:outline-none focus:ring-2 focus:ring-primary "
-                                                                        placeholder="Enter your email address"
+                                                                        id="name"
+                                                                        name="name"
+                                                                        placeholder="Enter your full name"
                                                                         required
                                                                     />
                                                                 </div>
 
-                                                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-6">
-                                                                    <div className="grid gap-2">
-                                                                        <label
-                                                                            className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                                                                            htmlFor="name">
-                                                                            Institution
-                                                                            Name{" "}
-                                                                            <span className="text-red-500">
-                                                                                *
-                                                                            </span>
-                                                                        </label>
-                                                                        <input
-                                                                            className="flex h-10 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-zinc-400  ring-0 ring-slate-900/10 hover:ring-slate-300 focus:outline-none focus:ring-2 focus:ring-primary "
-                                                                            id="institutionName"
-                                                                            name="institutionName"
-                                                                            placeholder="Enter your institution name"
-                                                                        />
-                                                                    </div>
-
-                                                                    <div className="grid gap-2">
-                                                                        <label
-                                                                            className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                                                                            htmlFor="name">
-                                                                            Designation
-                                                                        </label>
-                                                                        <input
-                                                                            className="flex h-10 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-zinc-400  ring-0 ring-slate-900/10 hover:ring-slate-300 focus:outline-none focus:ring-2 focus:ring-primary "
-                                                                            id="designation"
-                                                                            name="designation"
-                                                                            placeholder="Enter your designation"
-                                                                        />
-                                                                    </div>
-                                                                </div>
-
-                                                                <div>
-                                                                    <label className="block text-sm text-gray-700 font-medium ">
-                                                                        Message
+                                                                <div className="grid gap-2">
+                                                                    <label
+                                                                        className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                                                                        htmlFor="name">
+                                                                        Phone
+                                                                        Number{" "}
                                                                         <span className="text-red-500">
                                                                             *
                                                                         </span>
                                                                     </label>
-                                                                    <textarea
-                                                                        id="message"
-                                                                        name="message"
-                                                                        className="flex h-20 w-full rounded-md border border-input bg-transparent px-3 py-2 text-sm shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-zinc-400  ring-0 ring-slate-900/10 hover:ring-slate-300 focus:outline-none focus:ring-2 focus:ring-primary "
-                                                                        required
-                                                                        placeholder="Enter your message"></textarea>
+                                                                    <input
+                                                                        className="flex h-10 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-zinc-400  ring-0 ring-slate-900/10 hover:ring-slate-300 focus:outline-none focus:ring-2 focus:ring-primary "
+                                                                        id="phoneNumber"
+                                                                        name="phoneNumber"
+                                                                        placeholder="Enter  phone number"
+                                                                    />
                                                                 </div>
+                                                            </div>
+
+                                                            <div>
+                                                                <label
+                                                                    htmlFor="hs-work-email-hire-us-2"
+                                                                    className="block text-sm text-gray-700 font-medium ">
+                                                                    Work Email{" "}
+                                                                    <span className="text-red-500">
+                                                                        *
+                                                                    </span>
+                                                                </label>
+                                                                <input
+                                                                    type="email"
+                                                                    id="email"
+                                                                    name="email"
+                                                                    className="flex h-10 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-zinc-400  ring-0 ring-slate-900/10 hover:ring-slate-300 focus:outline-none focus:ring-2 focus:ring-primary "
+                                                                    placeholder="Enter your email address"
+                                                                    required
+                                                                />
+                                                            </div>
+
+                                                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-6">
+                                                                <div className="grid gap-2">
+                                                                    <label
+                                                                        className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                                                                        htmlFor="name">
+                                                                        Institution
+                                                                        Name{" "}
+                                                                        <span className="text-red-500">
+                                                                            *
+                                                                        </span>
+                                                                    </label>
+                                                                    <input
+                                                                        className="flex h-10 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-zinc-400  ring-0 ring-slate-900/10 hover:ring-slate-300 focus:outline-none focus:ring-2 focus:ring-primary "
+                                                                        id="institutionName"
+                                                                        name="institutionName"
+                                                                        placeholder="Enter your institution name"
+                                                                    />
+                                                                </div>
+
+                                                                <div className="grid gap-2">
+                                                                    <label
+                                                                        className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                                                                        htmlFor="name">
+                                                                        Designation
+                                                                    </label>
+                                                                    <input
+                                                                        className="flex h-10 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-zinc-400  ring-0 ring-slate-900/10 hover:ring-slate-300 focus:outline-none focus:ring-2 focus:ring-primary "
+                                                                        id="designation"
+                                                                        name="designation"
+                                                                        placeholder="Enter your designation"
+                                                                    />
+                                                                </div>
+                                                            </div>
+
+                                                            <div>
+                                                                <label className="block text-sm text-gray-700 font-medium ">
+                                                                    Message
+                                                                    <span className="text-red-500">
+                                                                        *
+                                                                    </span>
+                                                                </label>
+                                                                <textarea
+                                                                    id="message"
+                                                                    name="message"
+                                                                    className="flex h-20 w-full rounded-md border border-input bg-transparent px-3 py-2 text-sm shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-zinc-400  ring-0 ring-slate-900/10 hover:ring-slate-300 focus:outline-none focus:ring-2 focus:ring-primary "
+                                                                    required
+                                                                    placeholder="Enter your message"></textarea>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
+                                        </div>
 
-                                            <div className="bg-white px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
+                                        <div className="bg-white px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
+                                            {!process && (
                                                 <button
                                                     type="submit"
-                                                    className="inline-flex w-full justify-center rounded-md bg-green-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-green-500 sm:ml-3 sm:w-auto">
+                                                    className="inline-flex w-full justify-center rounded-md bg-green-600 px-3 py-2 text-lg font-semibold text-white shadow-sm hover:bg-green-500 sm:ml-3 sm:w-auto">
                                                     Submit
                                                 </button>
-                                            </div>
-                                        </form>
-                                    )}
-
-                                    {message != "" && (
-                                        <div className="p-4 sm:p-10 text-center overflow-y-auto">
-                                            <span className="mb-4 inline-flex justify-center items-center w-[46px] h-[46px] rounded-full border-4 border-green-50 bg-green-100 text-green-500 ">
-                                                <svg
-                                                    className="w-5 h-5"
-                                                    xmlns="http://www.w3.org/2000/svg"
-                                                    width="16"
-                                                    height="16"
-                                                    fill="currentColor"
-                                                    viewBox="0 0 16 16">
-                                                    <path d="M11.251.068a.5.5 0 0 1 .227.58L9.677 6.5H13a.5.5 0 0 1 .364.843l-8 8.5a.5.5 0 0 1-.842-.49L6.323 9.5H3a.5.5 0 0 1-.364-.843l8-8.5a.5.5 0 0 1 .615-.09z"></path>
-                                                </svg>
-                                            </span>
-
-                                            <span className="hidden flex-shrink-0  justify-center items-center w-[46px] h-[46px] sm:w-[62px] sm:h-[62px] rounded-full border-4 border-red-50 bg-red-100 text-red-500 dark:bg-red-700 dark:border-red-600 dark:text-red-100">
-                                                <svg
-                                                    className="w-5 h-5"
-                                                    xmlns="http://www.w3.org/2000/svg"
-                                                    width="16"
-                                                    height="16"
-                                                    fill="currentColor"
-                                                    viewBox="0 0 16 16">
-                                                    <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"></path>
-                                                </svg>
-                                            </span>
-
-                                            <h3 className="mb-2 text-xl font-bold text-gray-800 ">
-                                                Email has been sent!
-                                            </h3>
-                                            {/* <p className="text-gray-500">
-                                                You can see the progress of your
-                                                task in your You will be
-                                                notified of its completion.
-                                            </p> */}
-
-                                            <div className="mt-6 flex justify-center gap-x-4">
+                                            )}
+                                            {process && (
                                                 <button
-                                                    onClick={() => {
-                                                        setOpen(false);
-                                                        setMessage("");
-                                                    }}
-                                                    type="button"
-                                                    className="py-2.5 px-4 inline-flex justify-center items-center gap-2 rounded-md border font-medium bg-white text-gray-700 shadow-sm align-middle hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-primary transition-all text-sm dark:bg-gray-800 dark:hover:bg-slate-800 dark:border-gray-700 dark:text-gray-400 dark:hover:text-white dark:focus:ring-offset-gray-800">
-                                                    OK
+                                                    disabled
+                                                    className="inline-flex w-full justify-center rounded-md bg-green-700 px-3 py-2 text-lg font-semibold text-zinc-200 shadow-sm  sm:ml-3 sm:w-auto cursor-not-allowed">
+                                                    <svg
+                                                        aria-hidden="true"
+                                                        role="status"
+                                                        className="inline mr-2 w-4 h-4 text-gray-200 animate-spin dark:text-gray-600"
+                                                        viewBox="0 0 100 101"
+                                                        fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+                                                            d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z"
+                                                            fill="currentColor"></path>
+                                                        <path
+                                                            d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z"
+                                                            fill="#1C64F2"></path>
+                                                    </svg>
+                                                    Sending...
                                                 </button>
-                                            </div>
+                                            )}
                                         </div>
-                                    )}
+                                    </form>
                                 </Dialog.Panel>
                             </Transition.Child>
                         </div>
