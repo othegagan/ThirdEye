@@ -273,8 +273,10 @@ const Pricing = () => {
                                                                         className="flex h-10 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-zinc-400  ring-0 ring-slate-900/10 hover:ring-slate-300 focus:outline-none focus:ring-2 focus:ring-primary "
                                                                         id="name"
                                                                         name="name"
+                                                                        minLength={3}
                                                                         placeholder="Enter your full name"
                                                                         required
+                                                                        title="Please Enter your Full Name "
                                                                     />
                                                                 </div>
 
@@ -292,6 +294,9 @@ const Pricing = () => {
                                                                         className="flex h-10 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-zinc-400  ring-0 ring-slate-900/10 hover:ring-slate-300 focus:outline-none focus:ring-2 focus:ring-primary "
                                                                         id="phoneNumber"
                                                                         name="phoneNumber"
+                                                                        pattern="^\d{10}$"
+                                                                        title="Please enter a 10-digit phone number (numbers only, no spaces or special characters)."
+                                                                        required
                                                                         placeholder="Enter  phone number"
                                                                     />
                                                                 </div>
@@ -313,6 +318,7 @@ const Pricing = () => {
                                                                     className="flex h-10 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-zinc-400  ring-0 ring-slate-900/10 hover:ring-slate-300 focus:outline-none focus:ring-2 focus:ring-primary "
                                                                     placeholder="Enter your email address"
                                                                     required
+                                                                    title="Please Enter your work mail id"
                                                                 />
                                                             </div>
 
@@ -331,6 +337,8 @@ const Pricing = () => {
                                                                         className="flex h-10 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-zinc-400  ring-0 ring-slate-900/10 hover:ring-slate-300 focus:outline-none focus:ring-2 focus:ring-primary "
                                                                         id="institutionName"
                                                                         name="institutionName"
+                                                                        minLength={3}
+                                                                        title="Please Enter Institution Name"
                                                                         placeholder="Enter your institution name"
                                                                     />
                                                                 </div>
@@ -345,6 +353,8 @@ const Pricing = () => {
                                                                         className="flex h-10 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-zinc-400  ring-0 ring-slate-900/10 hover:ring-slate-300 focus:outline-none focus:ring-2 focus:ring-primary "
                                                                         id="designation"
                                                                         name="designation"
+                                                                        minLength={3}
+                                                                        title="Please Enter your designation"
                                                                         placeholder="Enter your designation"
                                                                     />
                                                                 </div>
@@ -362,6 +372,8 @@ const Pricing = () => {
                                                                     name="message"
                                                                     className="flex h-20 w-full rounded-md border border-input bg-transparent px-3 py-2 text-sm shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-zinc-400  ring-0 ring-slate-900/10 hover:ring-slate-300 focus:outline-none focus:ring-2 focus:ring-primary "
                                                                     required
+                                                                    minLength={3}
+                                                                    title="Please Enter your message"
                                                                     placeholder="Enter your message"></textarea>
                                                             </div>
                                                         </div>
@@ -382,7 +394,6 @@ const Pricing = () => {
                                                 <button
                                                     disabled
                                                     className="inline-flex w-full justify-center rounded-md bg-green-700 px-3 py-2 text-lg font-semibold text-zinc-200 shadow-sm  sm:ml-3 sm:w-auto cursor-not-allowed items-center">
-
                                                     <svg
                                                         fill="#ffffff"
                                                         height="64px"

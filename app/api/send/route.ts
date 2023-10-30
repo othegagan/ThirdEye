@@ -13,9 +13,9 @@ export async function POST(request: NextRequest) {
 
         //@ts-ignore
         const data = await resend.emails.send({
-            from: 'Third Eye <onboarding@resend.dev>',
-            to: 'gagankumar8711@gmail.com',
-            subject: 'Message from contact form',
+            from: 'Third Eye Contact Form <onboarding@resend.dev>',
+            to: 'reach.us@dimension64.com',
+            subject: `${name} filled the contact form`,
             react: EmailTemplate({
                 fullName: name,
                 message: message,
