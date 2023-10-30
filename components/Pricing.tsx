@@ -213,7 +213,7 @@ const Pricing = () => {
                                     role="button"
                                     onClick={() => {
                                         setOpen(true);
-                                        setFormTitle("Contact Sale Team");
+                                        setFormTitle("Contact Sales Team");
                                     }}>
                                     Contact Sales team{" "}
                                 </button>
