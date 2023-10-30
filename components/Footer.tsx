@@ -114,6 +114,7 @@ const Footer = () => {
 
                     <div className="sm:flex sm:items-center text-center sm:justify-between space-y-5">
                         <p className="text-sm text-zinc-100">© 2023 Dimension64 Private Limited.</p>
+                        <p className="text-sm text-zinc-100">reach.us@dimension64.com</p>
                         <p className="text-sm text-zinc-100">www.dimension64.com</p>
                     </div>
                 </div>
