@@ -8,19 +8,19 @@ const NavBar = () => {
     const navLinks = [
         {
             name: "About",
-            links: "#about",
+            links: "/#about",
         },
         {
             name: "Features",
-            links: "#features",
+            links: "/#features",
         },
         {
             name: "Pricing",
-            links: "#pricing",
+            links: "/#pricing",
         },
         {
             name: "FAQ's",
-            links: "#FAQ",
+            links: "/#FAQ",
         },
     ];
 
@@ -29,7 +29,7 @@ const NavBar = () => {
             <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
                 <nav className="flex items-center justify-between h-16 lg:h-20">
                     <div className="flex-shrink-0">
-                        <a href="#" title="" className="flex">
+                        <a href="/" title="" className="flex">
                             <img
                                 className="w-auto h-8 lg:h-10"
                                 src="/logo.svg"

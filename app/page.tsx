@@ -14,7 +14,6 @@ export default function Home() {
     return (
         <>
             <Toaster position="bottom-center" reverseOrder={false} />
-            <NavBar />
             <HeroSection />
             <Aboutus />
             <OurVision />
@@ -23,7 +22,6 @@ export default function Home() {
             <GetStarted />
             <Pricing />
             <FAQ />
-            <Footer />
         </>
     );
 }
