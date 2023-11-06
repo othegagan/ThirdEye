@@ -3,10 +3,10 @@ import { NextRequest, NextResponse } from 'next/server';
 
 import sgMail from '@sendgrid/mail';
 
-// const SENDGRID_API_KEY = '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'
+const SENDGRID_API_KEY = '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'
 
 //ts-ignore
-sgMail.setApiKey(process.env.SENDGRID_API_KEY ?? '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');
+sgMail.setApiKey(SENDGRID_API_KEY);
 
 export async function POST(request: NextRequest) {
     try {
