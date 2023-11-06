@@ -13,9 +13,11 @@ const MoreAbout = () => {
 
 
                     <div className="">
-                        <h2 className="text-3xl font-bold leading-tight text-black sm:text-4xl lg:text-4xl">By Joining ThirdEye, <br /> One Can Avail a Lot Of Benefits.</h2>
-                        <p className="mt-4 text-sm leading-relaxed text-zinc-800">Third Eye represents the pinnacle of educational solutions, providing a transformative experience for educational institutions dedicated to enhancing their teaching and learning methods. Our comprehensive platform redefines educational administration and management, extending empowerment to teachers, students, and parents alike.</p>
-                        <p className="mt-4 text-sm leading-relaxed text-zinc-800">With Third Eye, administrative tasks are elegantly streamlined, freeing educators to concentrate on delivering top-notch instruction. Our platform champions personalized learning, offering tailor-made assessments and assignments that cater to the unique requirements of each student. It also facilitates ongoing evaluation, enabling educators to monitor student progress and provide timely, constructive feedback that fuels improved learning outcomes.</p>
+                        <h2 className="text-3xl font-bold leading-tight text-black sm:text-4xl lg:text-4xl">Unlock Limitless Learning Potential with ThirdEye </h2>
+                        <p className="mt-4 text-sm leading-relaxed text-zinc-800"> Third Eye is the ultimate solution for educational institutions seeking to elevate their teaching and learning practices. Our comprehensive platform revolutionized educational administration and management, empowering teachers, students, and parents alike. With Third Eye, administrative tasks are streamlined, enabling educators to focus more on delivering high- quality instruction. Our platform promotes personalized learning by offering tailored assessments and assignments to meet the unique needs of each student. </p>
+                        <p className="mt-4 text-sm leading-relaxed text-zinc-800">It also facilitates continuous evaluation, allowing educators to track student progress and provide timely feedback for improved learning outcomes. With a robust resource repository and seamless communication tools, Third Eye fosters collaboration and ensures equitable access to educational resources. Experience the transformative power of Third Eye and embark on a journey of limitless learning potential.</p>
+
+
                     </div>
                 </div>
             </div>

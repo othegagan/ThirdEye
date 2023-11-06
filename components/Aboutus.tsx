@@ -12,20 +12,10 @@ const Aboutus = () => {
                             Unlock Limitless Learning Potential with Third Eye
                         </h2>
                         <p className=" text-sm leading-relaxed text-zinc-800">
-                            ThirdEye is a cutting-edge educational platform that
-                            seamlessly integrates assessment management,
-                            resource sharing, and personalized learning
-                            capabilities. Our platform serves as a central
-                            nexus, fostering collaboration among teachers,
-                            students, and parents, all while creating an
-                            immersive and interactive learning atmosphere.
+                            Third Eye is an advanced educational platform that combines assessment management, resource sharing, and personalized learning features. It serves as a centralized hub for teachers, students, and parents, promoting a collaborative and engaging learning environment.
                         </p>
                         <p className=" text-sm leading-relaxed text-zinc-800">
-                            By harnessing the potential of technology, ThirdEye
-                            enables educational institutions to provide
-                            impactful and inclusive education, perfectly aligned
-                            with the principles of the National Education
-                            Policy.
+                            By harnessing the power of technology, Third Eye empowers educational institutions to deliver impactful and inclusive education aligned with the National Education Policy.
                         </p>
                         <a
                             href="#contact"

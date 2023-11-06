@@ -61,11 +61,11 @@ const Features = () => {
                             We are always working to provide best of the all
                             features in all aspects.
                         </h2>
-                        <p className="max-w-xl mx-auto mt-4 text-base leading-relaxed text-gray-600">
+                        {/* <p className="max-w-xl mx-auto mt-4 text-base leading-relaxed text-gray-600">
                             Install our top-rated dropshipping app to your
                             e-commerce site and get access to US Suppliers,
                             AliExpress vendors, and the best.
-                        </p>
+                        </p> */}
                     </div>
 
                     <div className="grid grid-cols-1 gap-6 mt-12 lg:mt-16 xl:gap-10 sm:grid-cols-2 lg:grid-cols-3">

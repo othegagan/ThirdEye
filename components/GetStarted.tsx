@@ -14,8 +14,7 @@ const GetStarted = () => {
                             Get started with ThirdEye easily
                         </h2>
                         <p className="max-w-lg mx-auto mt-4 text-base leading-relaxed text-gray-600">
-                            Choose your institution path, explore Third Eye with
-                            a demo, and access dedicated support for assistance.
+                        Embark on an effortless journey with Third Eye in just three simple steps
                         </p>
                     </div>
 

@@ -27,11 +27,7 @@ const HeroSection = () => {
                             <p className="mt-4 text-base text-black lg:mt-8 sm:text-lg">
                                 {" "}
                                 <Balancer>
-                                    ThirdEye streamline tasks, foster
-                                    personalized learning, and ensure equal
-                                    resource access. Empower educators to create
-                                    engaging assessments, curate curricula, and
-                                    inspire student-driven learning.{" "}
+                                Third Eye is a comprehensive educational platform designed to revolutionize the way we teach and learn. Our app offers a wide range of features that streamline administrative tasks, promote personalized learning, and ensure equitable access to resources. With Third Eye, educators can create engaging assessments, manage curricula, and empower students to take control of their learning journey.
                                 </Balancer>
                             </p>
 
