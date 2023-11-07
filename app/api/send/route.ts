@@ -5,7 +5,7 @@ import sgMail from '@sendgrid/mail';
 
 
 //ts-ignore
-sgMail.setApiKey('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');
+sgMail.setApiKey('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');
 
 export async function POST(request: NextRequest) {
     try {
