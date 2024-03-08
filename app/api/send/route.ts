@@ -1,17 +1,15 @@
-import { EmailTemplate } from '../../../components/email-template';
+
 import { NextRequest, NextResponse } from 'next/server';
 
 import sgMail from '@sendgrid/mail';
 
-
-//ts-ignore
-sgMail.setApiKey('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');
+//ts:ignore
+sgMail.setApiKey(process.env.SENDGRID_API_KEY!);
 
 export async function POST(request: NextRequest) {
     try {
 
-
-        const body = await request.json();
+      const body = await request.json();
 
         const { name, email, message, phoneNumber, institutionName, designation } = body;
 
@@ -20,7 +18,7 @@ export async function POST(request: NextRequest) {
             from: 'Third Eye Contact Form <radha.s@dimension64.com>',
             to: 'reach.us@dimension64.com',
             subject: `Product Demo Request - Action Required`,
-            html:`<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+            html: `<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
             <html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
             <head>
             <!--[if gte mso 9]>
@@ -163,10 +161,11 @@ export async function POST(request: NextRequest) {
             <p style="line-height: 140%;"> </p>
             <p style="line-height: 140%;"> </p>
             <p style="line-height: 140%;">Name: ${name}</p>
+            <p style="line-height: 140%;">Designation: ${designation}</p>
             <p style="line-height: 140%;">Institute: ${institutionName}</p>
             <p style="line-height: 140%;">Email ID: ${email}</p>
             <p style="line-height: 140%;">Phone Number: ${phoneNumber}</p>
-            <p style="line-height: 140%;"> </p>
+            <p style="line-height: 140%;">Message: ${message}</p>
             <p style="line-height: 140%;"> </p>
             <p style="line-height: 140%;">The client has expressed a strong interest in our product and is eager to learn more. To ensure a successful demo that aligns with their needs and expectations, we need to plan accordingly.</p>
             <p style="line-height: 140%;"> </p>

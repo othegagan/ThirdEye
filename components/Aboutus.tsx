@@ -18,7 +18,7 @@ const Aboutus = () => {
                             By harnessing the power of technology, Third Eye empowers educational institutions to deliver impactful and inclusive education aligned with the National Education Policy.
                         </p>
                         <a
-                            href="#contact"
+                            href="#pricing"
                             className="w-fit text-white bg-primary py-3 px-6 rounded-full flex gap-3 items-center ">
                             Contact{" "}
                             <svg
