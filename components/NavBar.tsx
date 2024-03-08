@@ -88,8 +88,8 @@ const NavBar = () => {
                     </div>
 
                     <Link
-                        href="https://school360-test.web.app/"
-                        title=""
+                         target="_blank"
+                                href="https://schoolerp-test.web.app/login"
                         className="items-center justify-center hidden px-4 py-3 ml-10 text-base font-semibold text-white transition-all duration-200 bg-primary border border-transparent rounded-full lg:inline-flex hover:bg-green-700 focus:bg-green-700"
                         role="button">
                         {" "}
@@ -117,7 +117,7 @@ const NavBar = () => {
                             <Link
                             target="_blank"
                                 href="https://schoolerp-test.web.app/login"
-                                title=""
+                               
                                 className="items-center justify-center  px-4 py-3 ml-10 text-base font-semibold text-white transition-all duration-200 bg-primary border border-transparent rounded-full lg:inline-flex hover:bg-green-700 focus:bg-green-700"
                                 role="button">
                                 {" "}
