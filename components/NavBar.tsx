@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 
 const NavBar = () => {
@@ -29,13 +30,13 @@ const NavBar = () => {
             <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
                 <nav className="flex items-center justify-between h-16 lg:h-20">
                     <div className="flex-shrink-0">
-                        <a href="/" title="" className="flex">
+                        <Link href="/" title="" className="flex">
                             <img
                                 className="w-auto h-8 lg:h-10"
                                 src="/logo.svg"
                                 alt=""
                             />
-                        </a>
+                        </Link>
                     </div>
 
                     <button
@@ -75,25 +76,25 @@ const NavBar = () => {
 
                     <div className="hidden lg:flex lg:items-center lg:ml-auto lg:space-x-10">
                         {navLinks.map((link) => (
-                            <a
+                            <Link
                                 href={link.links}
                                 title=""
                                 key={link.name}
                                 className="text-base font-medium text-black transition-all duration-200 hover:text-primary focus:text-primary">
                                 {" "}
                                 {link.name}{" "}
-                            </a>
+                            </Link>
                         ))}
                     </div>
 
-                    <a
+                    <Link
                         href="https://school360-test.web.app/"
                         title=""
                         className="items-center justify-center hidden px-4 py-3 ml-10 text-base font-semibold text-white transition-all duration-200 bg-primary border border-transparent rounded-full lg:inline-flex hover:bg-green-700 focus:bg-green-700"
                         role="button">
                         {" "}
                         Sign In{" "}
-                    </a>
+                    </Link>
                 </nav>
 
                 {open && (
@@ -101,26 +102,27 @@ const NavBar = () => {
                         <div className="flow-root">
                             <div className="flex flex-col px-6 -my-2 space-y-1">
                                 {navLinks.map((link) => (
-                                    <a
+                                    <Link
                                         href={link.links}
                                         key={link.links}
                                         className="inline-flex py-2 text-base font-medium text-black transition-all duration-200 hover:text-primary focus:text-primary">
                                         {" "}
                                         {link.name}{" "}
-                                    </a>
+                                    </Link>
                                 ))}
                             </div>
                         </div>
 
                         <div className="px-6 mt-6">
-                            <a
-                                href="https://school360-test.web.app/"
+                            <Link
+                            target="_blank"
+                                href="https://schoolerp-test.web.app/login"
                                 title=""
                                 className="items-center justify-center  px-4 py-3 ml-10 text-base font-semibold text-white transition-all duration-200 bg-primary border border-transparent rounded-full lg:inline-flex hover:bg-green-700 focus:bg-green-700"
                                 role="button">
                                 {" "}
                                 Sign In{" "}
-                            </a>
+                            </Link>
                         </div>
                     </nav>
                 )}
